@@ -1067,6 +1067,18 @@ body.no-scroll {
   }
 }
 
+@media (max-width: 768px) {
+  .intro-heart--special {
+    animation: pulse 1.2s infinite;
+  }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+  100% { transform: scale(1); }
+}
+
 /* RESPONSIVE */
 @media (max-width: 768px) {
   .top-nav {
@@ -1165,3 +1177,4 @@ body.no-scroll {
   75% { transform: translateX(-3px); }
 
 }
+
