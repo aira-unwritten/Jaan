@@ -364,9 +364,19 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  const isMobile = window.matchMedia("(pointer: coarse)").matches;
     /* ===== HEART INTRO LOGIC 💗 ===== */
   const heartIntro = document.getElementById("heartIntro");
+  const isMobile = window.matchMedia("(pointer: coarse)").matches;
+
+  if (isMobile && heartIntro) {
+    heartIntro.style.display = "none";
+    document.body.classList.remove("no-scroll");
+  
+    const heartHint = document.getElementById("heartHint");
+    if (heartHint) heartHint.remove();
+  
+    return; // 🚪 skip the entire heart intro logic
+  }
 
   if (heartIntro) {
     document.body.classList.add("no-scroll");
@@ -413,7 +423,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const specialDelay = (Math.random() * 1.6).toFixed(2);
     special.style.animationDelay = `${specialDelay}s`;
 
-    special.textContent = isMobile ? "💜" : "💓";
+    special.textContent = "💓";
     heartIntro.appendChild(special);
 
     // 3) Click handling – only unlock when special heart is clicked
@@ -439,4 +449,5 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 });
+
 
