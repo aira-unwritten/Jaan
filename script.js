@@ -364,6 +364,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  const isMobile = window.matchMedia("(pointer: coarse)").matches;
     /* ===== HEART INTRO LOGIC 💗 ===== */
   const heartIntro = document.getElementById("heartIntro");
 
@@ -412,7 +413,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const specialDelay = (Math.random() * 1.6).toFixed(2);
     special.style.animationDelay = `${specialDelay}s`;
 
-    special.textContent = "💓"; // slightly different
+    special.textContent = isMobile ? "❤️" : "💓";
     heartIntro.appendChild(special);
 
     // 3) Click handling – only unlock when special heart is clicked
@@ -436,4 +437,5 @@ document.addEventListener("DOMContentLoaded", () => {
       }, 950);
     });
   }
+
 });
